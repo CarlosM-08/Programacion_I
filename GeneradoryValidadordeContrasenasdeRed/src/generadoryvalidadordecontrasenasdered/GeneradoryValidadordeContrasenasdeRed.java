@@ -32,7 +32,6 @@ public class GeneradoryValidadordeContrasenasdeRed {
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "123456789" + "!@#$%&*_-?";
         int cantidad = 0;
         int posicion = 0;
-        char caracterAleatorio = ' ';
         String password = "";
         int tamano = 0;
         boolean tieneNumero = false;
@@ -67,6 +66,7 @@ public class GeneradoryValidadordeContrasenasdeRed {
                         tieneSimbolo = true;
                     }
                 }//Fin if/else comprobacion
+                
             }//Fin for comprobacion letra, numero, simbolo
 
             //EVALUACION DEL PASSWORD
