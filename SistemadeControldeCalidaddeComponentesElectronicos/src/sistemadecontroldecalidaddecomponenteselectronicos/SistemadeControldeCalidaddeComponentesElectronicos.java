@@ -26,46 +26,52 @@ public class SistemadeControldeCalidaddeComponentesElectronicos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         Random rd = new Random();
         Scanner input = new Scanner(System.in);
-        
+
         //Declaracion de variables
         int numComponentes = 0;
         int componente = 0;
         int aPass = 0, bWarn = 0, cFail = 0;
         int diferencia = 0;
-        
+        String codigo = "Sin Clasificacion";
+
         System.out.print("Ingresa el numero de componentes en el lote: ");
         numComponentes = input.nextInt();
-        
+
         for (int i = 1; i <= numComponentes; i++) {
-            componente = rd.nextInt(900, 1100); 
-            
+            componente = rd.nextInt(900, 1100);
+
             //CLASIFICACION
             if (componente >= 990 && componente <= 1010) {
-                System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: A-PASS\n", i, componente);
+                codigo = "A-PASS";
+                System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: %s\n", i, componente, codigo);
                 aPass++;
             } else {
                 diferencia = 1000 - componente;
 
                 if (Math.abs(diferencia) < 50) {
-                    System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: B-WARN\n", i, componente);
+                    codigo = "B-WARN";
+                    System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: %s\n", i, componente, codigo);
                     bWarn++;
-                }else{
-                    System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: C-FAIL\n", i, componente);  
+                } else {
+                    codigo = "C-FAIL";
+                    System.out.printf("Valor en Ohnios de la resistencia %d: %d\t Clasificacion: %s\n", i, componente, codigo);
                     cFail++;
                 }//fin else
-            }//Fin if / else Clasificacion        
+                
+            }//Fin if / else Clasificacion
+            
         }//Fin for
-        
+
         //RESUMEN
         System.out.println("");
         System.out.println("=====RESUMEN=====");
         System.out.printf("Cantidad de resistencias en categotia A-PASS: %d\n", aPass);
         System.out.printf("Cantidad de resistencias en categotia B-WARN: %d\n", bWarn);
         System.out.printf("Cantidad de resistencias en categotia C-FAIL: %d\n", cFail);
-        
+
     }//Fin Main
-    
+
 }//Fin Class
