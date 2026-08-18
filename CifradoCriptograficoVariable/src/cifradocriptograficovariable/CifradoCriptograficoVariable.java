@@ -29,7 +29,7 @@ public class CifradoCriptograficoVariable {
         // TODO code application logic here
 
         Random rd = new Random();
-        Scanner input = new Scanner(System.in);        
+        Scanner input = new Scanner(System.in);
         int desplazamiento = 0;
         char caracter = '@';
         String newFrase = "";
@@ -41,7 +41,7 @@ public class CifradoCriptograficoVariable {
         System.out.print("Ingresa una frase para ser cifrada: ");
         frase = input.nextLine();
 
-        desplazamiento = rd.nextInt(1, 6);        
+        desplazamiento = rd.nextInt(1, 6);
 
         for (int i = 0; i < frase.length(); i++) {
             caracter = frase.charAt(i);
@@ -50,19 +50,19 @@ public class CifradoCriptograficoVariable {
                     caracter += desplazamiento;
                     if (caracter > 'Z') {
                         caracter -= 26;
-                    }                     
-                }else {
-                        if (Character.isLowerCase(caracter)) {
-                            caracter += desplazamiento;
-                            if (caracter > 'z') {
-                                caracter -= 26;
-                            }
+                    }
+                } else {
+                    if (Character.isLowerCase(caracter)) {
+                        caracter += desplazamiento;
+                        if (caracter > 'z') {
+                            caracter -= 26;
                         }
                     }
+                }
             }
-            
+
             newFrase += caracter;
-            
+
         }//Fin for
 
         System.out.printf("Frase original: %s\n", frase);
