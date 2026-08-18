@@ -64,7 +64,8 @@ public class SimulaciondeTrayectoriaBalistica {
                         segundo = i;
                     }
                 }
-            } //fin for 
+            } //Fin for 
+            
             System.out.printf("La altura maxima es %.2f y ocurrio en el segundo %d\n", alturaMax, segundo);
 
         }//Fin if / else validacion
