@@ -25,9 +25,9 @@ public class AnálisisdeSensoresdeTemperatura {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         Scanner input = new Scanner(System.in);
-        
+
         //Declaracion de variables
         double temperatura = 0;
         double temAcum = 0;
@@ -36,46 +36,47 @@ public class AnálisisdeSensoresdeTemperatura {
         double temMax = 0;
         double temMin = 0;
         double difTermica = 0;
-        
+
         while (temperatura != -999) {
             System.out.print("Ingrese el valor de la temperatura (en grados centigrados): ");
             temperatura = input.nextDouble();
-            
-                        
+
             if (temperatura == -999) {
-                break;                
+                break;
             }//Fin if (validacion de valor centinela)
-            
-            if (temperatura >= -273.15) {                
-                temMin = temperatura;
+
+            if (temperatura >= -273.15) {
                 temAcum += temperatura;
-                canTemp++;   
+                canTemp++;
+                if (canTemp == 1) {
+                    temMin = temperatura;
+                    temMax = temperatura;
+                }
                 if (temperatura > temMax) {
-                    temMax = temperatura; 
-                    
-                } 
+                    temMax = temperatura;
+                }
                 if (temperatura < temMin) {
-                    temMin = temperatura;                        
-                }                   
-                
-            }else{
-                System.out.println("ERROR, temperatura no valida");                 
+                    temMin = temperatura;
+                }
+
+            } else {
+                System.out.println("ERROR, temperatura no valida");
             }//fin if/else (validacion de temperatura absoluta)
         }//Fin while
-        
+
         if (canTemp > 0) {
             promTem = temAcum / canTemp;
             difTermica = temMax - temMin;
             System.out.printf("temperatura acumulada: %.2f\n", temAcum);
             System.out.printf("Cantidad de temperaturas validas registradas: %d\n", canTemp);
             System.out.printf("El promedio de las temperaturas validas ingresadas es: %.2f\n", promTem);
-            System.out.printf("La temperatura Maxima es %.2f\n",temMax);   
-            System.out.printf("La temperatura minima es: %.2f\n",temMin);
+            System.out.printf("La temperatura Maxima es %.2f\n", temMax);
+            System.out.printf("La temperatura minima es: %.2f\n", temMin);
             System.out.printf("La diferencia termica es: %.2f\n", difTermica);
-        }else{
-            System.out.println("No se ingresaron temperaturas validas");        
-        }        
-        
+        } else {
+            System.out.println("No se ingresaron temperaturas validas");
+        }
+
     }//Fin Main
-    
+
 }//FIn Class
