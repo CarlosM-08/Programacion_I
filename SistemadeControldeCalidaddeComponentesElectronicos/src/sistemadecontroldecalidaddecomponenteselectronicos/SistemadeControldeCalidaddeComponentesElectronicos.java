@@ -41,7 +41,7 @@ public class SistemadeControldeCalidaddeComponentesElectronicos {
         numComponentes = input.nextInt();
 
         for (int i = 1; i <= numComponentes; i++) {
-            componente = rd.nextInt(900, 1100);
+            componente = rd.nextInt(900, 1101);
 
             //CLASIFICACION
             if (componente >= 990 && componente <= 1010) {
