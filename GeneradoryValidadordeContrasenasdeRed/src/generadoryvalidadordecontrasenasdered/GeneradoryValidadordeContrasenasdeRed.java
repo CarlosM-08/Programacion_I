@@ -29,7 +29,7 @@ public class GeneradoryValidadordeContrasenasdeRed {
         Scanner input = new Scanner(System.in);
 
         //Declaracion de variables
-        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "123456789" + "!@#$%&*_-?";
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "!@#$%&*_-?";
         int cantidad = 0;
         int posicion = 0;
         String password = "";
@@ -43,6 +43,10 @@ public class GeneradoryValidadordeContrasenasdeRed {
         cantidad = input.nextInt();
 
         for (int i = 0; i < cantidad; i++) {
+
+            tieneLetra = false;
+            tieneNumero = false;
+            tieneSimbolo = false;
 
             //tamaño de la contraseña        
             tamano = rd.nextInt(4, 20);
@@ -66,14 +70,14 @@ public class GeneradoryValidadordeContrasenasdeRed {
                         tieneSimbolo = true;
                     }
                 }//Fin if/else comprobacion
-                
+
             }//Fin for comprobacion letra, numero, simbolo
 
             //EVALUACION DEL PASSWORD
             if (password.length() > 10 && tieneNumero == true && tieneSimbolo == true) {
                 System.out.println("El password es FUERTE");
             } else {
-                if ((password.length() >= 8 && password.length() <= 10) && tieneNumero == true && tieneSimbolo == true) {
+                if ((password.length() >= 8 && password.length() <= 10) && tieneNumero == true || tieneSimbolo == true) {
                     System.out.println("El password es MEDIA");
                 } else {
                     System.out.println("El password es DEBIL");
